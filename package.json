@@ -1,0 +1,53 @@
+{
+  "name": "kanban-comparison-backend",
+  "version": "1.0.0",
+  "description": "Shared NestJS REST API for the React + Capacitor and React Native experiment",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": { "node": ">=22 <25" },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/main.js",
+    "start:dev": "node --watch -r ts-node/register src/main.ts",
+    "lint": "eslint .",
+    "test": "jest --runInBand",
+    "test:postgres": "jest --config test/jest-postgres.config.cjs --runInBand",
+    "test:smoke": "node test/smoke.cjs",
+    "db:migrate": "ts-node src/database/tools/migrate.ts",
+    "db:seed": "ts-node src/database/tools/seed.ts"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.0",
+    "@nestjs/config": "^4.0.0",
+    "@nestjs/core": "^11.1.0",
+    "@nestjs/platform-express": "^11.1.0",
+    "@nestjs/swagger": "^11.2.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "dotenv": "^16.6.1",
+    "pg": "^8.16.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2"
+  },
+  "overrides": {
+    "@nestjs/swagger": {
+      "js-yaml": "5.4.2"
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@nestjs/testing": "^11.1.0",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^22.15.0",
+    "@types/pg": "^8.15.0",
+    "@types/supertest": "^6.0.3",
+    "eslint": "^9.39.0",
+    "jest": "^30.0.0",
+    "supertest": "^7.1.0",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.0"
+  }
+}
